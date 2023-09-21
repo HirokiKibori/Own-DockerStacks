@@ -13,7 +13,8 @@ docker-compose up
 ```
 
 Open *nginx* with [localhost](http://localhost/)  
-Open *index.php* with [127.0.0.1](http://127.0.0.1/)
+Open *index.php* with [127.0.0.1](http://127.0.0.1/)  
+Open *phpmyadmin* with [localhost:8080](http://localhost:8080/)
 
 ## Services
 - **nginx (:80)**: nginx:latest  
