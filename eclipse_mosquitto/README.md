@@ -1,9 +1,13 @@
 # PHP
-A docker-compose for [node-red](https://nodered.org/).
+A docker-compose for [Eclipse Mosquitto™](https://www.mosquitto.org/).
 
 Started with 
-"[Docker Stack / Docker Compose](https://nodered.org/docs/getting-started/docker#docker-stack--docker-compose)"
-and added directory *./data* to get control over configs, logs, ... .
+"[Quick reference](https://hub.docker.com/_/eclipse-mosquitto)"
+and added *./mosquitto.conf* as well as directories *./data* and *./log* to get control over configs, logs, ... .  
+The configuration possibilities are documented on the [mosquitto.conf man page](https://mosquitto.org/man/mosquitto-conf-5.html).  
+The given *./mosquitto.conf* was created to test this broker with a default node-red instance.
+
+An other guide can be found on [setup-mosquitto-with-docker](https://github.com/sukesh-ak/setup-mosquitto-with-docker).
 
 **Only for development! Don't run this in a productive setup without editing before.**
 
@@ -12,11 +16,14 @@ Run command in root-directory:
 docker-compose up
 ```
 
-Open *node-red* with [localhost:1880](http://localhost:1880/)  
+Open *eclipse-mosquitto* with [localhost:1883](http://localhost:1883/)  
+Open *eclipse-mosquitto (websockets)* with [localhost:9001](http://localhost:9001/)  
 
 ## Services
-- **node-red (:1880)**: nodered/node-red:latest  
--> ./data
+- **eclipse-mosquitto (:1883 / :9001)**: eclipse-mosquitto:latest  
+-> ./mosquitto.conf  
+-> ./data  
+-> ./log  
 
 ## ! Note !
 This compose uses an external network (*public-test-network*) to connect to services in other docker-stacks.  

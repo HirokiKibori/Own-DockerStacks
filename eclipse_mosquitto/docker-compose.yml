@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  eclipse_mosquitto:
+    image: eclipse-mosquitto:latest
+    ports:
+      - 1883:1883
+      - 9001:9001
+    networks:
+      - public-test-network
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ./data:/mosquitto/data
+      - ./log:/mosquitto/log
+
+networks:
+  public-test-network:
+    external: true
