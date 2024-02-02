@@ -40,3 +40,5 @@ networks:
     external: true
 ```
 and add this as *network* to your service you want to connect.
+
+In the overlay-network you can connect by using the service-name. In my case '*node_red-node_red-1*'.
