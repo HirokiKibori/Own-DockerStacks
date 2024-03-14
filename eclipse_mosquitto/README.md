@@ -1,4 +1,4 @@
-# PHP
+# Eclipse Mosquitto™
 A docker-compose for [Eclipse Mosquitto™](https://www.mosquitto.org/).
 
 Started with 
