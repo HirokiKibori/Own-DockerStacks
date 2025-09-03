@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  grafana:
+    image: grafana/grafana-enterprise:latest
+    container_name: grafana_enterprise
+    ports:
+      - 3000:3000
+    networks:
+      - public-test-network
+    environment:
+      - 'GF_LOG_LEVEL=debug'
+      - 'GF_SERVER_ROOT_URL=http://localhost:3000/'
+      - 'GF_PLUGINS_PREINSTALL=grafana-clock-panel, grafana-simple-json-datasource'
+    volumes:
+      - ./grafana-enterprise-storage:/var/lib/grafana
+
+networks:
+  public-test-network:
+    external: true

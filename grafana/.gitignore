@@ -1,0 +1,6 @@
+*.log
+*.db
+plugins/
+pdf/
+csv/
+png/
