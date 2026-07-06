@@ -1,2 +1,2 @@
-/grafana-oss-storage
-!/grafana-oss-storage/*.db
+grafana-oss-storage/*
+!grafana-oss-storage/*.db
