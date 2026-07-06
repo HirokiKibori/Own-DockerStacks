@@ -1,0 +1,50 @@
+services:
+  influxdb3-core:
+    image: influxdb:core
+    container_name: influxdb3-core
+    ports:
+      - 8181:8181
+    networks:
+      - public-test-network
+    command:
+      - influxdb3
+      - serve
+      - --node-id=primary-node
+      - --object-store=file
+      - --data-dir=/var/lib/influxdb3
+    volumes:
+      - ./influxdb3:/var/lib/influxdb3
+
+  influxdb3-explorer:
+    image: influxdata/influxdb3-ui:latest
+    container_name: influxdb3-ui
+    ports:
+      - 8182:8080
+    networks:
+      - public-test-network
+    command:
+      - --mode=admin
+    volumes:
+      - ./influxdb3-ui/certs:/ca-certs
+      - ./influxdb3-ui/db:/db:rw
+      - ./influxdb3-ui/config:/app-root/config:ro
+      - ./influxdb3-ui/ssl:/etc/nginx/ssl
+      - ./influxdb3-ui/instructions:/app-root/admin-instructions
+
+  grafana:
+    image: grafana/grafana-oss:latest
+    container_name: grafana-oss
+    ports:
+      - 3000:3000
+    networks:
+      - public-test-network
+    environment:
+      - GF_LOG_LEVEL=debug
+      - GF_SERVER_ROOT_URL=http://localhost:3000/
+      - GF_PLUGINS_PREINSTALL=grafana-clock-panel, grafana-simple-json-datasource
+    volumes:
+      - ./grafana-oss-storage:/var/lib/grafana
+
+networks:
+  public-test-network:
+    external: true

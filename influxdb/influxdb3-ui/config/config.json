@@ -1,0 +1,6 @@
+{
+  "DEFAULT_INFLUX_SERVER": "http://influxdb3-core:8181",
+  "DEFAULT_INFLUX_DATABASE": "influxdb3-core",
+  "DEFAULT_API_TOKEN": "apiv3_5B3OPuukyQX-0Oa9968VLqXvFxiKp3yZVslM9Yr7vv3Pgaqct1GB9gg1JO62nJiywoES7ZmK7wRpcSLPS-8pxg",
+  "DEFAULT_SERVER_NAME": "influxdb3-core"
+}
