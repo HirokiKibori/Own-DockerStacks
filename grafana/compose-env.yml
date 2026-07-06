@@ -4,6 +4,7 @@ services:
   grafana:
     image: grafana/grafana-oss:latest
     container_name: grafana_oss
+    hostname: grafana
     ports:
       - 3000:3000
     networks:
@@ -13,7 +14,7 @@ services:
       - 'GF_SERVER_ROOT_URL=http://localhost:3000/'
       - 'GF_PLUGINS_PREINSTALL=grafana-clock-panel, grafana-simple-json-datasource'
     volumes:
-      - ./grafana-oss-storage:/var/lib/grafana
+      - ./env-storage/grafana-oss-storage:/var/lib/grafana
 
 networks:
   public-test-network:
